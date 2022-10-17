@@ -9,7 +9,7 @@ Console.WriteLine("Введите количество элементов мас
 int n = Convert.ToInt32(Console.ReadLine());
 int[] numbers = new int[n];
 InputArray(numbers);
-Console.WriteLine("Массиве: ");
+Console.WriteLine("Массив: ");
 PrintArray(numbers);
 void InputArray(int[] numbers)
 {
