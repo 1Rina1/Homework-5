@@ -33,7 +33,8 @@ void PrintArray(int[] numbers)
     for(int i = 0; i < numbers.Length; i++)
     {
         Console.Write(numbers[i] + " ");
-        
+     
+     
         
         
  // Задача 36
@@ -43,42 +44,29 @@ void PrintArray(int[] numbers)
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
+void InputArray(int[] array)
+{
+   for (int i = 0; i < array.Length; i++)
+       array[i] = new Random().Next(-10, 11);
+}
+
+int CountEventNumbers(int[] array)
+{
+   int summa = 0;
+   for (int i = 1; i < array.Length; i+=2)
+       summa = summa + array[i];
+   return summa;    
+}
 
 Console.Clear();
-Console.WriteLine("Введите количество элементов массива: ");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
-InputArray(numbers);
-Console.WriteLine("Массив: ");
-PrintArray(numbers);
-int sum = 0;
+Console.Write("Введите количество элементов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
+InputArray(array);
+Console.WriteLine($"[{string.Join(", ", array)}]");
+Console.WriteLine($"Сумма элементов на нечетных позициях: {CountEventNumbers(array)}");
 
-for (int i = 0; i < numbers.Length; i+=2)
-    sum = sum + numbers[i];
 
-    Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов на нечётных позициях = {sum}");
-
-void InputArray(int[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
-        {
-            numbers[i] = new Random().Next(1,100);
-        }
-}
-void PrintArray(int[] numbers)
-{
-    Console.Write("[ ");
-    for(int i = 0; i < numbers.Length; i++)
-        {
-            Console.Write(numbers[i] + " ");
-        }
-    Console.Write("]");
-    Console.WriteLine();
-}   
-    }
-    Console.Write("]");
-    Console.WriteLine();
-}
 
 
 
