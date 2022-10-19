@@ -114,3 +114,69 @@ InputArray(array);
 Console.WriteLine($"[{string.Join(",", array)}]");
 Console.WriteLine($"Разница между макс и мин: {CountEventNumbers(array)}");
 
+
+// Второй максимум
+// Задана последовательность натуральных чисел, завершающаяся числом 0. Требуется определить
+// значение второго по величине элемента в этой последовательности, то есть элемента, который
+// будет наибольшим, если из последовательности удалить наибольший элемент.
+
+// Входные данные
+// Входной файл INPUT.TXT содержит последовательность неотрицательных целых чисел, не превышающих
+// значения 100. Гарантируется, что во входных данных не более 100 чисел и среди них есть хотя бы
+// одно число 0, перед которым идет как минимум 2 элемента.
+
+// Выходные данные
+// В выходной файл OUTPUT.TXT выведите целое число – значение второго максимума.
+
+
+Console.Clear();
+int n = Convert.ToInt32(Console.ReadLine());
+int firstMax = n, secondMax = -1;
+
+while (n != 0)
+{
+   n = Convert.ToInt32(Console.ReadLine());
+   if (n > firstMax)
+   {
+      secondMax = firstMax;
+      firstMax = n;
+   }
+   else if (n > secondMax)
+        secondMax = n;
+}
+Console.WriteLine(secondMax);
+
+
+// Суперсдвиг
+// Дана последовательность из N целых чисел и число K. Необходимо сдвинуть всю последовательность
+// (сдвиг - циклический) на |K| элементов вправо, если K – положительное и влево, если отрицательное.
+
+// Входные данные
+// Первая строка входного файла INPUT.TXT содержит натуральное число N, во второй строке записаны N целых чисел Ai,
+// а в последней – целое число K. (1 ≤ N ≤ 105, |K| ≤ 105, |Ai| ≤ 100).
+
+// Выходные данные
+// В выходной файл OUTPUT.TXT выведите полученную последовательность.
+
+
+Console.Clear();
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
+for (int i = 0; i < array.Length; i++);
+    array[i] = Convert.ToInt32(Console.ReadLine());
+
+int[] arrayResult = new int[n];
+int k = Convert.ToInt32(Console.ReadLine());
+k = k % n;
+if (k > 0)
+{
+   for (int i = 0; i <= k; i++);
+       arrayResult[i] = array[n - k + i];
+   for (int i = 0; i < n - k; i++);
+       arrayResult[k + i] = array[i];
+
+    Console.WriteLine($"[{string.Join(",", arrayResult)}]");   
+}   
+else 
+{
+   k = k * (-1);
